@@ -1,0 +1,7 @@
+gradio==4.44.1
+Pillow>=9.0
+numpy>=1.21
+matplotlib>=3.5
+pyinstaller>=6.0
+python-docx>=0.8
+huggingface_hub<1.0

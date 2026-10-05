@@ -1,0 +1,61 @@
+SUM 数据集转换项目：依赖库安装说明
+====================================
+
+一、快速安装（推荐）
+
+请在项目根目录打开 PowerShell，并先激活项目使用的 Python/Conda 环境：
+
+    conda activate sum
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+
+requirements.txt 是 pip 可直接读取的依赖清单。若尚未创建环境，可执行：
+
+    conda create -n sum python=3.9 -y
+    conda activate sum
+    python -m pip install -r requirements.txt
+
+安装后启动程序：
+
+    python main.py
+
+
+二、项目直接依赖
+
+包名                  版本要求                 用途
+gradio                4.44.1                   Web 用户界面
+Pillow                >= 9.0                   图片读取及尺寸处理
+numpy                 >= 1.21                  数值和数组计算
+matplotlib            >= 3.5                   统计图表绘制
+pyinstaller           >= 6.0                   可执行程序打包支持
+python-docx           >= 0.8                   Word 文档相关功能
+huggingface_hub       < 1.0                    Gradio 相关兼容依赖
+
+上述版本是项目的直接依赖约束。pip 会根据当前 Python 版本解析并安装其所需的间接依赖。
+
+
+三、单独安装（不使用 requirements.txt）
+
+    python -m pip install "gradio==4.44.1" "Pillow>=9.0" "numpy>=1.21" "matplotlib>=3.5" "pyinstaller>=6.0" "python-docx>=0.8" "huggingface_hub<1.0"
+
+
+四、检查安装结果
+
+    python --version
+    python -m pip show gradio Pillow numpy matplotlib pyinstaller python-docx huggingface_hub
+    python -m unittest discover -s tests -v
+
+程序已在 Windows、Python 3.9.25、Gradio 4.44.1 环境中验证。其他系统或 Python 版本下，依赖解析结果可能不同。
+
+
+五、Halcon 说明
+
+SUM 的 Python 依赖中不包含 Halcon。YOLO 转 Halcon 功能可生成参考 JSON 和 HDevelop 脚本；若要运行脚本生成 Halcon 原生 .hdict，需要另行安装 MVTec HALCON 软件。
+
+
+六、常见安装问题
+
+1. 请确认已激活正确环境：PowerShell 中运行 `python -c "import sys; print(sys.executable)"`，检查解释器路径。
+2. 请在项目根目录执行安装命令，确保该目录中存在 requirements.txt。
+3. 如果网络或镜像导致下载失败，可稍后重试，或按所在网络环境配置 pip 源。
+4. 不建议把本机 Conda 环境目录复制给其他电脑；请在目标电脑新建环境并重新安装依赖。
