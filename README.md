@@ -1,5 +1,7 @@
 # SUM 数据集标注格式转换工具
 
+[简体中文](README.md) | [English](README_EN.md)
+
 SUM（Smart Unified Manager）是一个面向目标检测数据集的本地工具，提供标注格式转换、数据集拆分和 YOLO 标注统计等功能。项目使用 Python 和 Gradio 构建，通过浏览器操作本机程序；数据集由用户在本机选择，项目不会将其打包进代码仓库。
 
 ## 界面截图
