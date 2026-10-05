@@ -99,38 +99,6 @@ COCO 等格式通常需要图像索引或对应图片目录。文件名重复、
 - 仓库不包含个人数据集、图片样本、转换结果或 Halcon 商业软件文件。
 - 运行测试时默认使用临时合成数据；如果设置了 `SUM_TEST_DATA_ROOT`，测试可能对指定目录执行只读冒烟检查，输出仍放在临时目录中。
 
-## 运行测试
-
-在项目根目录执行：
-
-```powershell
-python -m unittest discover -s tests -v
-```
-
-测试覆盖常见格式转换、坐标计算、数据集拆分、统计、非法输入和大样本流式处理等路径。若要使用本机数据集进行可选的只读冒烟检查，可先设置：
-
-```powershell
-$env:SUM_TEST_DATA_ROOT = 'D:\Date_set'
-python -m unittest discover -s tests -v
-```
-
-测试会将生成内容写入临时目录，不会将数据集加入仓库。
-
-## 上传到 GitHub
-
-在 GitHub 创建空仓库后，可使用 Git 命令上传本目录：
-
-```powershell
-git init
-git add .
-git commit -m "Initial SUM release"
-git branch -M main
-git remote add origin <你的 GitHub 仓库地址>
-git push -u origin main
-```
-
-上传前请检查 `.gitignore`，确认没有把数据集、转换输出、个人配置、缓存或本机路径提交到仓库。依赖版本可在 [`requirements.txt`](requirements.txt) 中按需要调整。
-
 ## 许可证
 
 本项目采用 MIT License，详见 [`LICENSE`](LICENSE)。使用、修改和分发时请保留许可证及版权声明。
